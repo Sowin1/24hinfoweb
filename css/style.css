@@ -3,3 +3,57 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.video-background-container {
+    position: fixed;
+    /* ou absolute, selon vos besoins de layout */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Empêche les barres de défilement si la vidéo dépasse */
+    z-index: -1;
+    /* TRÈS IMPORTANT : Place la vidéo derrière tout le reste du contenu */
+}
+
+#background-video {
+    width: 100vw;
+    /* vw = viewport width, prend toute la largeur de la fenêtre */
+    height: 100vh;
+    /* vh = viewport height, prend toute la hauteur de la fenêtre */
+    object-fit: cover;
+    /* Similaire à background-size: cover pour les images.
+                          La vidéo couvrira tout l'espace, en conservant ses proportions
+                          et en étant rognée si nécessaire. */
+    position: absolute;
+    /* Positionnée par rapport à son conteneur */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Technique pour centrer parfaitement la vidéo */
+}
+
+/* Style pour le contenu qui sera par-dessus la vidéo */
+.contenu-par-dessus {
+    position: relative;
+    /* Pour s'assurer qu'il est au-dessus du z-index négatif */
+    z-index: 1;
+    /* Ou toute valeur supérieure à celle de la vidéo */
+    padding: 20px;
+    text-align: center;
+    /* Exemple */
+    color: white;
+    /* Assurez-vous que votre texte est lisible sur la vidéo */
+}
+
+/* Assurez-vous que le body n'a pas de marges par défaut qui pourraient interférer */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* Empêche le défilement horizontal si la vidéo est légèrement plus grande */
+}
