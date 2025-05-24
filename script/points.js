@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
             resetButton.addEventListener('click', function() {
                 localStorage.setItem('userScore', '0');
                 updateScoreDisplay();
-                alert('Score réinitialisé !');
             });
         }
     });
